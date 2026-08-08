@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium portfolio of a Computer Science & Engineering student — projects, research, skills, and contact.">
+  <meta name="keywords" content="CSE, portfolio, software engineer, web developer, machine learning, student">
+  <meta name="author" content="Your Name">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Your Name | CSE Portfolio">
+  <meta property="og:description" content="Computer Science & Engineering student portfolio showcasing projects, research, and skills.">
+  <meta property="og:type" content="website">
+  <title>Your Name | Computer Science & Engineering Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <script>
+    window.tailwind = window.tailwind || {};
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3B82F6',
+            secondary: '#8B5CF6',
+            accent: '#06B6D4',
+            surface: '#1E293B',
+          },
+          boxShadow: {
+            glow: '0 40px 120px rgba(59, 130, 246, 0.22)',
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#0F172A] text-slate-100 antialiased">
+
+  <div class="fixed inset-x-0 top-0 h-1 z-50 bg-slate-900">
+    <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-primary via-secondary to-accent transition-all duration-200"></div>
+  </div>
+
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 rounded-full bg-slate-900 px-4 py-2 text-sm text-slate-100">Skip to main content</a>
+
+  <header class="sticky top-0 z-40 border-b border-slate-800/70 bg-slate-950/95 backdrop-blur-xl">
+    <div class="container mx-auto flex items-center justify-between gap-4 px-6 py-4">
+      <a href="#hero" class="flex items-center gap-2 text-xl font-semibold tracking-[0.22em] text-slate-100">
+        <!-- <span class="text-primary">&lt;</span> -->
+        <!-- <span> <img src="assets/images/portfolio2.png" alt="Portfolio logo: geometric shield design with bold blue and orange stripes forming a stylized F letter in the center, representing professional web development and software engineering expertise"> </span> -->
+        <span class="text-secondary">/&gt;</span>
+      </a>
+
+      <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
+        <a href="#hero" class="nav-link rounded-full px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Home</a>
+        <a href="#about" class="nav-link rounded-full px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">About</a>
+        <a href="#education" class="nav-link rounded-full px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Education</a>
+        <a href="#skills" class="nav-link rounded-full px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Skills</a>
+        <a href="#projects" class="nav-link rounded-full px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Projects</a>
+        <a href="#research" class="nav-link rounded-full px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Research</a>
+        <!-- <a href="#experience" class="nav-link rounded-full px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Experience</a> -->
+        <a href="#certifications" class="nav-link rounded-full px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Certifications</a>
+        <a href="#achievements" class="nav-link rounded-full px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Achievements</a>
+        <!-- <a href="#services" class="nav-link rounded-full px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Services</a> -->
+        <a href="#contact" class="nav-link rounded-full border border-slate-700 bg-slate-900/80 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-primary hover:text-white">Contact</a>
+      </nav>
+
+      <button id="navToggle" aria-expanded="false" aria-controls="navMenu" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 bg-slate-900/95 text-slate-100 transition lg:hidden focus:outline-none focus:ring-2 focus:ring-primary">
+        <span class="block h-[2px] w-5 bg-current"></span>
+        <span class="block h-[2px] w-5 bg-current mt-1"></span>
+        <span class="block h-[2px] w-5 bg-current mt-1"></span>
+      </button>
+    </div>
+
+    <div id="navMenu" class="hidden border-t border-slate-800/60 bg-slate-950/95 lg:hidden">
+      <div class="container mx-auto px-6 pb-5 pt-3">
+        <nav class="grid gap-2" aria-label="Mobile navigation">
+          <a href="#hero" class="nav-link rounded-3xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Home</a>
+          <a href="#about" class="nav-link rounded-3xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">About</a>
+          <a href="#education" class="nav-link rounded-3xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Education</a>
+          <a href="#skills" class="nav-link rounded-3xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Skills</a>
+          <a href="#projects" class="nav-link rounded-3xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Projects</a>
+          <a href="#research" class="nav-link rounded-3xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Research</a>
+          <!-- <a href="#experience" class="nav-link rounded-3xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Experience</a> -->
+          <a href="#certifications" class="nav-link rounded-3xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Certifications</a>
+          <a href="#achievements" class="nav-link rounded-3xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Achievements</a>
+          <!-- <a href="#services" class="nav-link rounded-3xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80 hover:text-white">Services</a> -->
+          <a href="#contact" class="nav-link rounded-3xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-primary hover:text-white">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section id="hero" class="relative overflow-hidden pt-8 pb-24 lg:pt-12 lg:pb-32">
+      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.24),_transparent_18%),radial-gradient(circle_at_bottom_right,_rgba(139,92,246,0.22),_transparent_20%)]"></div>
+      <div class="container mx-auto grid gap-16 px-6 lg:grid-cols-[1.25fr_0.9fr] lg:items-center">
+        <div class="relative z-10 space-y-8">
+          <!-- <div class="inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/85 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-300">
+            <span class="text-primary">CSE Student</span>
+          </div> -->
+          <div class="space-y-4">
+            <p class="text-lg text-slate-300">Hello, I'm</p>
+            <h1 class="text-5xl font-extrabold tracking-tight text-white sm:text-6xl">AHMED</h1>
+            <p class="max-w-3xl text-xl leading-9 text-slate-300">I create premium software experiences with strong foundations in web development, machine learning, and full-stack engineering.</p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3 text-sm sm:text-base">
+            <span class="text-slate-400 uppercase tracking-[0.3em]">Learning Through Practice</span>
+            <span class="flex items-center gap-2 text-white font-semibold">
+              <span id="typingText" class="text-primary"></span>
+              <span class="animate-pulse text-primary">|</span>
+            </span>
+          </div>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="assets/resume.pdf" class="ripple-btn inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-6 py-3 text-sm font-semibold text-slate-100 transition duration-200 hover:border-primary hover:text-white">
+              <i class="fas fa-download"></i> Download CV
+            </a>
+            <a href="#contact" class="ripple-btn inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-6 py-3 text-sm font-semibold text-slate-100 transition duration-200 hover:border-primary hover:text-white">
+              <i class="fas fa-envelope"></i> Contact Me
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="https://github.com/connectamn" target="_blank" rel="noopener noreferrer" class="social-link inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-900/80 text-slate-100 transition hover:bg-slate-700 hover:text-white" aria-label="GitHub profile">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/connectamn" target="_blank" rel="noopener noreferrer" class="social-link inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-900/80 text-slate-100 transition hover:bg-slate-700 hover:text-white" aria-label="LinkedIn profile">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://x.com/ahmednoor_amn" target="_blank" rel="noopener noreferrer" class="social-link inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-900/80 text-slate-100 transition hover:bg-slate-700 hover:text-white" aria-label="Twitter profile">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.facebook.com/iahmedamn/" target="_blank" rel="noopener noreferrer" class="social-link inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-900/80 text-slate-100 transition hover:bg-slate-700 hover:text-white" aria-label="Facebook profile">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/i.ahmednoor/" target="_blank" rel="noopener noreferrer" class="social-link inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-900/80 text-slate-100 transition hover:bg-slate-700 hover:text-white" aria-label="Instagram profile">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@AMNvideos" target="_blank" rel="noopener noreferrer" class="social-link inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-900/80 text-slate-100 transition hover:bg-slate-700 hover:text-white" aria-label="YouTube profile">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.threads.com/@i.ahmednoor" target="_blank" rel="noopener noreferrer" class="social-link inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-900/80 text-slate-100 transition hover:bg-slate-700 hover:text-white" aria-label="Threads profile">
+              <i class="fab fa-threads"></i>
+            </a>
+            <a href="mailto:ahmedmohammednuruddin@gmail.com" class="social-link inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-900/80 text-slate-100 transition hover:bg-slate-700 hover:text-white" aria-label="Send email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="relative mx-auto flex w-full max-w-xl justify-center">
+          <div class="glass-card relative overflow-hidden rounded-[25.5rem] border border-slate-700/50 p-4 shadow-glow">
+            <img src="assets/images/profile.jpg" alt="Portrait of Your Name, Computer Science & Engineering student" class="h-full w-full rounded-full object-cover" loading="eager" style="aspect-ratio: 0.1 / 0.1;" />
+          </div>
+          <div class="pointer-events-none absolute -right-10 top-10 h-24 w-24 rounded-full bg-secondary/20 blur-3xl"></div>
+          <div class="pointer-events-none absolute left-8 bottom-8 h-20 w-20 rounded-full bg-accent/20 blur-3xl"></div>
+        </div>
+      </div>
+
+      <div class="mt-19 flex justify-center">
+        <a href="#about" class="flex items-center gap-2 text-sm uppercase tracking-[0.3em] text-slate-300 transition hover:text-white">
+          Scroll Down <i class="fas fa-chevron-down"></i>
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="section py-20 lg:py-24">
+      <div class="container mx-auto flex flex-col items-center px-6">
+        <div class="mb-12 max-w-2xl space-y-4 text-center">
+          <span class="inline-flex rounded-full bg-slate-900/80 px-3 py-1 text-xs uppercase tracking-[0.35em] text-slate-400">About Me</span>
+          <h2 class="text-4xl font-semibold text-white">Who I Am</h2>
+          <p class="text-slate-400">A dedicated CSE student with a passion for technology, research, and building software that makes an impact.</p>
+        </div>
+
+        <div class="grid w-full max-w-6xl gap-6 lg:grid-cols-3">
+          <article class="glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up">
+            <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-slate-900 text-primary">
+              <i class="fas fa-user-tie text-xl"></i>
+            </div>
+            <h3 class="mb-3 text-xl font-semibold text-white">Professional Summary</h3>
+            <p class="text-slate-400 leading-7">I am a Computer Science & Engineering student with a strong foundation in programming, data structures, and software development. I enjoy turning complex problems into simple, intuitive solutions.</p>
+          </article>
+
+          <article class="glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up">
+            <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-slate-900 text-secondary">
+              <i class="fas fa-bullseye text-xl"></i>
+            </div>
+            <h3 class="mb-3 text-xl font-semibold text-white">Career Objective</h3>
+            <p class="text-slate-400 leading-7">To secure a challenging role in software or machine learning where I can build meaningful products, collaborate across teams, and grow my skills in modern engineering practices.</p>
+          </article>
+
+          <article class="glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up">
+            <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-slate-900 text-accent">
+              <i class="fas fa-star text-xl"></i>
+            </div>
+            <h3 class="mb-3 text-xl font-semibold text-white">Personal Qualities</h3>
+            <ul class="space-y-3 text-slate-400">
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle mt-1 text-primary"></i> Strong problem-solving abilities</li>
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle mt-1 text-primary"></i> Quick learner and self-motivated</li>
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle mt-1 text-primary"></i> Excellent teamwork and communication</li>
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle mt-1 text-primary"></i> Detail-oriented and organized</li>
+              <li class="flex items-start gap-3"><i class="fas fa-check-circle mt-1 text-primary"></i> Passionate about continuous learning</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section py-20 lg:py-24 bg-slate-950/80">
+      <div class="container mx-auto px-6">
+        <div class="mb-12 max-w-2xl text-center mx-auto">
+          <span class="inline-flex rounded-full bg-slate-900/80 px-3 py-1 text-xs uppercase tracking-[0.35em] text-slate-400">Education</span>
+          <h2 class="mt-4 text-4xl font-semibold text-white">Academic Background</h2>
+          <p class="mt-3 text-slate-400">A timeline of my academic achievements and ongoing learning journey.</p>
+        </div>
+
+        <div class="space-y-8">
+          <article class="glass-card rounded-[2rem] border border-slate-700/70 p-8 shadow-glow slide-up">
+            <div class="mb-6 flex flex-wrap items-center gap-4">
+              <div class="flex h-16 w-16 items-center justify-center rounded-3xl bg-primary/15 text-primary">
+                <i class="fas fa-graduation-cap text-2xl"></i>
+              </div>
+              <div>
+                <p class="text-sm uppercase tracking-[0.3em] text-slate-400">2022 — 2026</p>
+                <h3 class="mt-2 text-2xl font-semibold text-white">Bachelor of Science in Computer Science & Engineering</h3>
+              </div>
+            </div>
+            <div class="grid gap-4 md:grid-cols-2">
+              <div class="space-y-3 rounded-[1.5rem] bg-slate-900/80 p-5">
+                <div class="text-slate-400 flex items-center gap-2"><i class="fas fa-university"></i>Metropolitan University</div>
+                <div class="text-slate-400 flex items-center gap-2"><i class="fas fa-building"></i>Department of Computer Science & Engineering</div>
+              </div>
+              <!-- <div class="flex flex-col gap-3 rounded-[1.5rem] bg-slate-900/80 p-5">
+                <span class="inline-flex items-center gap-2 rounded-full bg-slate-800 px-4 py-3 text-sm text-slate-300"><i class="fas fa-chart-line text-primary"></i> CGPA: 3.85 / 4.00</span>
+                <span class="inline-flex items-center gap-2 rounded-full bg-slate-800 px-4 py-3 text-sm text-slate-300"><i class="fas fa-calendar-check text-secondary"></i> Expected Graduation: 2026</span>
+              </div> -->
+            </div>
+            <p class="mt-6 text-slate-400 leading-7">Relevant coursework: Data Structures & Algorithms, Object-Oriented Programming, Database Systems, Operating Systems, Computer Networks, Software Engineering, Machine Learning, and Artificial Intelligence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section py-20 lg:py-24">
+      <div class="container mx-auto px-6">
+        <div class="mb-12 max-w-2xl text-center mx-auto">
+          <span class="inline-flex rounded-full bg-slate-900/80 px-3 py-1 text-xs uppercase tracking-[0.35em] text-slate-400">Skills</span>
+          <h2 class="mt-4 text-4xl font-semibold text-white">Technical Expertise</h2>
+          <p class="mt-3 text-slate-400">A powerful mix of programming languages, frameworks, tools, and systems.</p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            <div class="group flex h-28 flex-col items-center justify-center rounded-[1.5rem] border border-slate-700/70 bg-slate-900/70 p-4 shadow-glow transition duration-300 hover:-translate-y-1 hover:border-primary hover:bg-slate-800/90 slide-up">
+              <i class="fab fa-python text-4xl text-slate-100 transition duration-300 group-hover:scale-125 group-hover:text-primary"></i>
+              <span class="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Python</span>
+            </div>
+            <div class="group flex h-28 flex-col items-center justify-center rounded-[1.5rem] border border-slate-700/70 bg-slate-900/70 p-4 shadow-glow transition duration-300 hover:-translate-y-1 hover:border-primary hover:bg-slate-800/90 slide-up">
+              <i class="fab fa-java text-4xl text-slate-100 transition duration-300 group-hover:scale-125 group-hover:text-primary"></i>
+              <span class="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Java</span>
+            </div>
+            <div class="group flex h-28 flex-col items-center justify-center rounded-[1.5rem] border border-slate-700/70 bg-slate-900/70 p-4 shadow-glow transition duration-300 hover:-translate-y-1 hover:border-primary hover:bg-slate-800/90 slide-up">
+              <i class="fab fa-js text-4xl text-slate-100 transition duration-300 group-hover:scale-125 group-hover:text-primary"></i>
+              <span class="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">JavaScript</span>
+            </div>
+            <div class="group flex h-28 flex-col items-center justify-center rounded-[1.5rem] border border-slate-700/70 bg-slate-900/70 p-4 shadow-glow transition duration-300 hover:-translate-y-1 hover:border-primary hover:bg-slate-800/90 slide-up">
+              <i class="fab fa-html5 text-4xl text-slate-100 transition duration-300 group-hover:scale-125 group-hover:text-primary"></i>
+              <span class="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">HTML</span>
+            </div>
+            <div class="group flex h-28 flex-col items-center justify-center rounded-[1.5rem] border border-slate-700/70 bg-slate-900/70 p-4 shadow-glow transition duration-300 hover:-translate-y-1 hover:border-primary hover:bg-slate-800/90 slide-up">
+              <i class="fab fa-css3-alt text-4xl text-slate-100 transition duration-300 group-hover:scale-125 group-hover:text-primary"></i>
+              <span class="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">CSS</span>
+            </div>
+            <div class="group flex h-28 flex-col items-center justify-center rounded-[1.5rem] border border-slate-700/70 bg-slate-900/70 p-4 shadow-glow transition duration-300 hover:-translate-y-1 hover:border-primary hover:bg-slate-800/90 slide-up">
+              <i class="fab fa-django text-4xl text-slate-100 transition duration-300 group-hover:scale-125 group-hover:text-primary"></i>
+              <span class="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Django</span>
+            </div>
+            <div class="group flex h-28 flex-col items-center justify-center rounded-[1.5rem] border border-slate-700/70 bg-slate-900/70 p-4 shadow-glow transition duration-300 hover:-translate-y-1 hover:border-primary hover:bg-slate-800/90 slide-up">
+              <i class="fas fa-database text-4xl text-slate-100 transition duration-300 group-hover:scale-125 group-hover:text-primary"></i>
+              <span class="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Database</span>
+            </div>
+            <div class="group flex h-28 flex-col items-center justify-center rounded-[1.5rem] border border-slate-700/70 bg-slate-900/70 p-4 shadow-glow transition duration-300 hover:-translate-y-1 hover:border-primary hover:bg-slate-800/90 slide-up">
+              <i class="fab fa-git-alt text-4xl text-slate-100 transition duration-300 group-hover:scale-125 group-hover:text-primary"></i>
+              <span class="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Git</span>
+            </div>
+            <div class="group flex h-28 flex-col items-center justify-center rounded-[1.5rem] border border-slate-700/70 bg-slate-900/70 p-4 shadow-glow transition duration-300 hover:-translate-y-1 hover:border-primary hover:bg-slate-800/90 slide-up">
+              <i class="fab fa-github text-4xl text-slate-100 transition duration-300 group-hover:scale-125 group-hover:text-primary"></i>
+              <span class="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">GitHub</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section py-20 lg:py-24 bg-slate-950/80">
+      <div class="container mx-auto px-6">
+        <div class="mb-12 max-w-2xl text-center mx-auto">
+          <span class="inline-flex rounded-full bg-slate-900/80 px-3 py-1 text-xs uppercase tracking-[0.35em] text-slate-400">Projects</span>
+          <h2 class="mt-4 text-4xl font-semibold text-white">Featured Work</h2>
+          <p class="mt-3 text-slate-400">A selection of projects I have designed, built, and shipped with real results.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article class="project-card group glass-card rounded-[2rem] border border-slate-700/70 overflow-hidden shadow-glow slide-up">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/project-1.jpg" alt="FinTrack dashboard" class="h-72 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+              <span class="absolute left-4 top-4 rounded-full bg-primary/95 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-950">FinTrack</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold text-white">FinTrack</h3>
+              <p class="mt-4 text-slate-400 leading-7">A full-stack personal finance management system that enables users to track income and expenses, visualize spending trends, and manage financial records through a responsive dashboard with secure authentication.</p>
+              <div class="mt-5 flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-slate-400">
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">Python</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">Django</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">HTML5</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">CSS3</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">JavaScript (ES6)</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">SQLite</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">Chart.js</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">Bootstrap</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">Render</span>
+              </div>
+              <div class="mt-6 flex flex-wrap gap-3">
+                <a href="https://github.com/connectamn/FinTrack" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full bg-primary border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-90 transition hover:bg-[#2563EB]"> <i class="fab fa-github"></i> GitHub</a>
+                <a href="https://fintrack-3uzl.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-primary hover:text-white"> <i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <a href="https://youtu.be/Q2YBmE3bEBQ" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-primary hover:text-white"> <i class="fas fa-circle-play"></i> Video Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card group glass-card rounded-[2rem] border border-slate-700/70 overflow-hidden shadow-glow slide-up">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/project-2.jpg" alt="E-commerce web application" class="h-72 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+              <span class="absolute left-4 top-4 rounded-full bg-secondary/95 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-950">Web App</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold text-white">OMS</h3>
+              <p class="mt-4 text-slate-400 leading-7">A web-based orphanage management system that simplifies orphan records, staff administration, donor management, and database operations through an organized and user-friendly interface.</p>
+              <div class="mt-5 flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-slate-400">
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">HTML5</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">CSS3</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">JavaScript</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">PHP</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">MySQL</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">phpMyAdmin</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">XAMPP</span>
+
+              </div>
+              <div class="mt-6 flex flex-wrap gap-3">
+                <a href="https://github.com/connectamn/dbms-orphanage-management-system" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full bg-primary border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-90 transition hover:bg-[#2563EB] "> <i class="fab fa-github"></i> GitHub</a>
+                <a href="https://ophms.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-secondary hover:text-white"> <i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <a href="https://youtu.be/KgM5PVZ_sAo" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-secondary hover:text-white"> <i class="fas fa-circle-play"></i> Video Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card group glass-card rounded-[2rem] border border-slate-700/70 overflow-hidden shadow-glow slide-up">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/project-3.jpg" alt="Quizzone" class="h-72 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+              <span class="absolute left-4 top-4 rounded-full bg-accent/95 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-950">Quizzone</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold text-white">Quizzone Frontend</h3>
+              <p class="mt-4 text-slate-400 leading-7">A modern online quiz platform for practicing exam questions with instant scoring and an engaging user experience.</p>
+              <div class="mt-5 flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-slate-400">
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">HTML5</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">CSS3</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">JavaScript</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">Open Trivia DB API</span>
+
+              </div>
+              <div class="mt-6 flex flex-wrap items-center gap-3">
+                <a href="https://github.com/connectamn/quizzone-frontend" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full bg-primary border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-90 transition hover:bg-[#2563EB]"> <i class="fab fa-github"></i> GitHub</a>
+                <a href="https://quizzone-frontend.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-accent hover:text-white"> <i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <div class="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-3 py-2 text-sm font-medium text-slate-100">
+                  <i class="fas fa-users text-slate-300"></i>
+                  <span class="text-slate-200">AHMED, SAYEM</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="project-card group glass-card rounded-[2rem] border border-slate-700/70 overflow-hidden shadow-glow slide-up">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/project-3.jpg" alt="Quizzone" class="h-72 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+              <span class="absolute left-4 top-4 rounded-full bg-accent/95 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-950">Quizzone</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold text-white">Quizzone Frontend</h3>
+              <p class="mt-4 text-slate-400 leading-7">A modern online quiz platform for practicing exam questions with instant scoring and an engaging user experience.</p>
+              <div class="mt-5 flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-slate-400">
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">HTML5</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">CSS3</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">JavaScript</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">Open Trivia DB API</span>
+
+              </div>
+              <div class="mt-6 flex flex-wrap items-center gap-3">
+                <a href="https://github.com/connectamn/quizzone-frontend" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full bg-primary border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-90 transition hover:bg-[#2563EB]"> <i class="fab fa-github"></i> GitHub</a>
+                <a href="https://quizzone-frontend.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-accent hover:text-white"> <i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <div class="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-3 py-2 text-sm font-medium text-slate-100">
+                  <i class="fas fa-users text-slate-300"></i>
+                  <span class="text-slate-200">AHMED, SAYEM</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card group glass-card rounded-[2rem] border border-slate-700/70 overflow-hidden shadow-glow slide-up">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/project-3.jpg" alt="Quizzone" class="h-72 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+              <span class="absolute left-4 top-4 rounded-full bg-accent/95 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-950">Quizzone</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold text-white">Quizzone Frontend</h3>
+              <p class="mt-4 text-slate-400 leading-7">A modern online quiz platform for practicing exam questions with instant scoring and an engaging user experience.</p>
+              <div class="mt-5 flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-slate-400">
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">HTML5</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">CSS3</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">JavaScript</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">Open Trivia DB API</span>
+
+              </div>
+              <div class="mt-6 flex flex-wrap items-center gap-3">
+                <a href="https://github.com/connectamn/quizzone-frontend" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full bg-primary border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-90 transition hover:bg-[#2563EB]"> <i class="fab fa-github"></i> GitHub</a>
+                <a href="https://quizzone-frontend.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-accent hover:text-white"> <i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <div class="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-3 py-2 text-sm font-medium text-slate-100">
+                  <i class="fas fa-users text-slate-300"></i>
+                  <span class="text-slate-200">AHMED, SAYEM</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card group glass-card rounded-[2rem] border border-slate-700/70 overflow-hidden shadow-glow slide-up">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/project-3.jpg" alt="Quizzone" class="h-72 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+              <span class="absolute left-4 top-4 rounded-full bg-accent/95 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-950">Quizzone</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold text-white">Quizzone Frontend</h3>
+              <p class="mt-4 text-slate-400 leading-7">A modern online quiz platform for practicing exam questions with instant scoring and an engaging user experience.</p>
+              <div class="mt-5 flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-slate-400">
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">HTML5</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">CSS3</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">JavaScript</span>
+                <span class="rounded-full bg-slate-900/80 px-3 py-2">Open Trivia DB API</span>
+
+              </div>
+              <div class="mt-6 flex flex-wrap items-center gap-3">
+                <a href="https://github.com/connectamn/quizzone-frontend" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full bg-primary border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-90 transition hover:bg-[#2563EB]"> <i class="fab fa-github"></i> GitHub</a>
+                <a href="https://quizzone-frontend.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn--small ripple-btn inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-accent hover:text-white"> <i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <div class="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-3 py-2 text-sm font-medium text-slate-100">
+                  <i class="fas fa-users text-slate-300"></i>
+                  <span class="text-slate-200">AHMED, SAYEM</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section py-20 lg:py-24">
+      <div class="container mx-auto px-6">
+        <div class="mb-12 max-w-2xl text-center mx-auto">
+          <span class="inline-flex rounded-full bg-slate-900/80 px-3 py-1 text-xs uppercase tracking-[0.35em] text-slate-400">Research</span>
+          <h2 class="mt-4 text-4xl font-semibold text-white">Research & Thesis</h2>
+          <p class="mt-3 text-slate-400">Driving research in machine learning for healthcare and data-driven innovation.</p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-[1.4fr_0.9fr]">
+          <article class="glass-card rounded-[2rem] border border-slate-700/70 p-8 shadow-glow slide-up">
+            <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+              <span class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm text-primary"><i class="fas fa-file-alt"></i> Undergraduate Thesis</span>
+              <span class="rounded-full bg-slate-900/80 px-4 py-2 text-sm text-slate-300">2025</span>
+            </div>
+            <h3 class="text-3xl font-semibold text-white">Early Detection of Cardiovascular Disease Using Ensemble Machine Learning Techniques</h3>
+            <div class="mt-8 space-y-4">
+              <div>
+                <h4 class="mb-3 text-sm uppercase tracking-[0.3em] text-slate-400">Abstract</h4>
+                <p class="text-slate-400 leading-7">This thesis explores ensemble machine learning for early heart disease prediction using clinical and lifestyle data. After feature engineering, the stacking ensemble reached 94.2% accuracy and demonstrates promise for affordable clinical screening tools.</p>
+              </div>
+              <div>
+                <h4 class="mb-3 text-sm uppercase tracking-[0.3em] text-slate-400">Technologies</h4>
+                <div class="flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-slate-300">
+                  <span class="rounded-full bg-slate-900/80 px-3 py-2">Python</span>
+                  <span class="rounded-full bg-slate-900/80 px-3 py-2">Scikit-learn</span>
+                  <span class="rounded-full bg-slate-900/80 px-3 py-2">XGBoost</span>
+                  <span class="rounded-full bg-slate-900/80 px-3 py-2">Pandas</span>
+                  <span class="rounded-full bg-slate-900/80 px-3 py-2">Matplotlib</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <aside class="glass-card rounded-[2rem] border border-slate-700/70 p-8 shadow-glow slide-up">
+            <h3 class="mb-6 text-2xl font-semibold text-white">Research Interests</h3>
+            <ul class="space-y-4 text-slate-400">
+              <li class="flex items-start gap-3"><i class="fas fa-brain mt-1 text-primary"></i> Machine Learning & Deep Learning</li>
+              <li class="flex items-start gap-3"><i class="fas fa-heartbeat mt-1 text-secondary"></i> AI in Healthcare</li>
+              <li class="flex items-start gap-3"><i class="fas fa-database mt-1 text-accent"></i> Data Mining & Big Data Analytics</li>
+              <li class="flex items-start gap-3"><i class="fas fa-robot mt-1 text-primary"></i> Natural Language Processing</li>
+              <li class="flex items-start gap-3"><i class="fas fa-eye mt-1 text-secondary"></i> Computer Vision</li>
+            </ul>
+            <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-primary hover:text-white">
+              <i class="fas fa-graduation-cap"></i> View Google Scholar
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="experience" class="section py-20 lg:py-24 bg-slate-950/80">
+      <div class="container mx-auto px-6">
+        <div class="mb-12 max-w-2xl text-center mx-auto">
+          <span class="inline-flex rounded-full bg-slate-900/80 px-3 py-1 text-xs uppercase tracking-[0.35em] text-slate-400">Experience</span>
+          <h2 class="mt-4 text-4xl font-semibold text-white">Work & Leadership</h2>
+          <p class="mt-3 text-slate-400">Hands-on experience that shaped my engineering mindset.</p>
+        </div>
+
+        <div class="space-y-6">
+          <article class="timeline-item glass-card rounded-[2rem] border border-slate-700/70 p-8 shadow-glow slide-up">
+            <div class="mb-5 flex flex-wrap items-center gap-4">
+              <div class="flex h-14 w-14 items-center justify-center rounded-3xl bg-primary/15 text-primary"><i class="fas fa-user-tie text-xl"></i></div>
+              <div>
+                <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Oct 2025 — Present</p>
+                <h3 class="text-2xl font-semibold text-white">Vice President — MUIS (Metropolitan University Islamic Society)</h3>
+              </div>
+            </div>
+            <p class="text-slate-300">Oversaw student engagement and society operations, organized campus events, and coordinated outreach programs to strengthen community involvement.</p>
+            <div class="mt-5 inline-flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-slate-300">
+              <span class="rounded-full bg-slate-900/80 px-3 py-2">Leadership</span>
+              <span class="rounded-full bg-slate-900/80 px-3 py-2">Event Management</span>
+              <span class="rounded-full bg-slate-900/80 px-3 py-2">Community Outreach</span>
+            </div>
+          </article>
+
+          <article class="timeline-item glass-card rounded-[2rem] border border-slate-700/70 p-8 shadow-glow slide-up">
+            <div class="mb-5 flex flex-wrap items-center gap-4">
+              <div class="flex h-14 w-14 items-center justify-center rounded-3xl bg-secondary/15 text-secondary"><i class="fas fa-handshake text-xl"></i></div>
+              <div>
+                <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Jun 2023 — Aug 2023</p>
+                <h3 class="text-2xl font-semibold text-white">Junior Intern Sales Officer — Carnival Internet</h3>
+              </div>
+            </div>
+            <p class="text-slate-300">Supported the sales team with client outreach, lead qualification, and CRM updates while gaining experience in sales operations and customer communication.</p>
+            <div class="mt-5 inline-flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-slate-300">
+              <span class="rounded-full bg-slate-900/80 px-3 py-2">Sales</span>
+              <span class="rounded-full bg-slate-900/80 px-3 py-2">CRM</span>
+              <span class="rounded-full bg-slate-900/80 px-3 py-2">Client Relations</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="certifications" class="section py-20 lg:py-24">
+      <div class="container mx-auto px-6">
+        <div class="mb-12 max-w-2xl text-center mx-auto">
+          <span class="inline-flex rounded-full bg-slate-900/80 px-3 py-1 text-xs uppercase tracking-[0.35em] text-slate-400">Certifications</span>
+          <h2 class="mt-4 text-4xl font-semibold text-white">Certifications</h2>
+          <p class="mt-3 text-slate-400">Professional credentials earned through dedicated learning and certification programs.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 justifu-center">
+          <article class="cert-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-accent/15 text-accent"><i class="fas fa-chalkboard-teacher text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Corporate Etiquette</h3>
+            <p class="mt-2 text-slate-400">10 Minute School</p>
+            <span class="mt-4 inline-flex rounded-full bg-slate-900/80 px-3 py-2 text-xs uppercase tracking-[0.25em] text-slate-300">2023</span>
+          </article>
+
+          <article class="cert-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-accent/15 text-accent"><i class="fas fa-comments text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Presentation & Public Speaking</h3>
+            <p class="mt-2 text-slate-400">10 Minute School</p>
+            <span class="mt-4 inline-flex rounded-full bg-slate-900/80 px-3 py-2 text-xs uppercase tracking-[0.25em] text-slate-300">2023</span>
+          </article>
+
+          <article class="cert-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-accent/15 text-accent"><i class="fas fa-bullhorn text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Fundamentals of Digital Marketing</h3>
+            <p class="mt-2 text-slate-400">Google Digital Garage</p>
+            <span class="mt-4 inline-flex rounded-full bg-slate-900/80 px-3 py-2 text-xs uppercase tracking-[0.25em] text-slate-300">2023</span>
+          </article>
+
+          <article class="cert-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-accent/15 text-accent"><i class="fas fa-shield-alt text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Technical Career Counseling Webinar on Cybersecurity</h3>
+            <p class="mt-2 text-slate-400">Basic Education</p>
+            <span class="mt-4 inline-flex rounded-full bg-slate-900/80 px-3 py-2 text-xs uppercase tracking-[0.25em] text-slate-300">2024</span>
+          </article>
+
+          <article class="cert-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-accent/15 text-accent"><i class="fas fa-trophy text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">1st Runner-up Team — OnCampus Program</h3>
+            <p class="mt-2 text-slate-400">Metropolitan University · HULT 2023-2024</p>
+            <span class="mt-4 inline-flex rounded-full bg-slate-900/80 px-3 py-2 text-xs uppercase tracking-[0.25em] text-slate-300">2024</span>
+          </article>
+
+          <article class="cert-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-accent/15 text-accent"><i class="fab fa-python text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Python Programming and Basic Data Science</h3>
+            <p class="mt-2 text-slate-400">EDGE BD</p>
+            <span class="mt-4 inline-flex rounded-full bg-slate-900/80 px-3 py-2 text-xs uppercase tracking-[0.25em] text-slate-300">2024</span>
+          </article>
+
+          <article class="cert-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-accent/15 text-accent"><i class="fas fa-book-open text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Fundamentals of Islam Course — Certificate of Appreciation</h3>
+            <p class="mt-2 text-slate-400">Metropolitan University</p>
+            <span class="mt-4 inline-flex rounded-full bg-slate-900/80 px-3 py-2 text-xs uppercase tracking-[0.25em] text-slate-300">2026</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements" class="section py-20 lg:py-24 bg-slate-950/80">
+      <div class="container mx-auto px-6">
+        <div class="mb-12 max-w-2xl text-center mx-auto">
+          <span class="inline-flex rounded-full bg-slate-900/80 px-3 py-1 text-xs uppercase tracking-[0.35em] text-slate-400">Achievements</span>
+          <h2 class="mt-4 text-4xl font-semibold text-white">Milestones & Recognition</h2>
+          <p class="mt-3 text-slate-400">Awards, competitions, and achievements that demonstrate consistency and impact.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <article class="achieve-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up hover:-translate-y-1 transition-transform">
+            <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-3xl bg-primary/15 text-primary"><i class="fas fa-trophy text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Hult Prize</h3>
+            <p class="mt-3 text-slate-400">1st Runner-Up – Hult Prize, Academic Session 2024. Recognized as the 1st Runner-Up for Shonali Krishi, an innovative solution designed to address farmers’ challenges by reducing the impact of supply-chain syndicates and connecting farmers more directly with fair markets.</p>
+          </article>
+
+          <article class="achieve-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up hover:-translate-y-1 transition-transform">
+            <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-3xl bg-secondary/15 text-secondary"><i class="fas fa-medal text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Champion in Ideathon</h3>
+            <p class="mt-3 text-slate-400">Champion – Ideation Competition, CSE Fest 2023. Awarded Champion for presenting an innovative idea that demonstrated creativity, problem-solving, and practical potential in addressing real-world challenges.</p>
+          </article>
+
+          <article class="achieve-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up hover:-translate-y-1 transition-transform">
+            <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-3xl bg-accent/15 text-accent"><i class="fas fa-award text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Best CR Award</h3>
+            <p class="mt-3 text-slate-400">A heartfelt recognition from my classmates and friends, given with love and appreciation for the dedication, support, and effort I put into representing our class.</p>
+          </article>
+
+          <article class="achieve-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up hover:-translate-y-1 transition-transform">
+            <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-3xl bg-slate-700/15 text-slate-200"><i class="fas fa-star text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Kaggle Top 5%</h3>
+            <p class="mt-3 text-slate-400">Finished in the top 5% of a global machine learning challenge.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="services" class="section py-20 lg:py-24">
+      <div class="container mx-auto px-6">
+        <div class="mb-12 max-w-2xl text-center mx-auto">
+          <span class="inline-flex rounded-full bg-slate-900/80 px-3 py-1 text-xs uppercase tracking-[0.35em] text-slate-400">Services</span>
+          <h2 class="mt-4 text-4xl font-semibold text-white">What I Offer</h2>
+          <p class="mt-3 text-slate-400">Specialized services built to elevate your next software, data, or research initiative.</p>
+        </div>
+
+        <div class="grid gap-6 xl:grid-cols-4">
+          <article class="service-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up hover:-translate-y-1 transition-transform">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-primary/15 text-primary"><i class="fas fa-code text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Web Development</h3>
+            <p class="mt-3 text-slate-400 leading-7">Responsive, accessible websites built with clean HTML, Tailwind CSS, and JavaScript.</p>
+          </article>
+          <article class="service-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up hover:-translate-y-1 transition-transform">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-secondary/15 text-secondary"><i class="fab fa-python text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Python Development</h3>
+            <p class="mt-3 text-slate-400 leading-7">Backend systems, automation, and APIs created with Django and Python.</p>
+          </article>
+          <article class="service-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up hover:-translate-y-1 transition-transform">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-accent/15 text-accent"><i class="fas fa-robot text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Machine Learning</h3>
+            <p class="mt-3 text-slate-400 leading-7">Intelligent models and prototypes built with scikit-learn, TensorFlow, and data science best practices.</p>
+          </article>
+          <article class="service-card glass-card rounded-[2rem] border border-slate-700/70 p-6 text-slate-100 shadow-glow slide-up hover:-translate-y-1 transition-transform">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-slate-700/15 text-slate-200"><i class="fas fa-chart-pie text-xl"></i></div>
+            <h3 class="text-xl font-semibold text-white">Data Analysis</h3>
+            <p class="mt-3 text-slate-400 leading-7">Data storytelling, visualization, and insight generation using Pandas, NumPy, and SQL.</p>
+          </article>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="stats" class="section py-20 lg:py-24 bg-slate-950/80">
+      <div class="container mx-auto px-6">
+        <div class="mb-12 max-w-2xl text-center mx-auto">
+          <span class="inline-flex rounded-full bg-slate-900/80 px-3 py-1 text-xs uppercase tracking-[0.35em] text-slate-400">At a Glance</span>
+          <h2 class="mt-4 text-4xl font-semibold text-white">My Journey in Numbers</h2>
+          <p class="mt-3 text-slate-400">A snapshot of contributions, learning, and results across projects and research.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <article class="stat-card glass-card rounded-[2rem] border border-slate-700/70 p-8 text-center shadow-glow slide-up hover:-translate-y-1 transition-transform">
+            <div class="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/15 text-primary"><i class="fas fa-rocket text-2xl"></i></div>
+            <span class="stat-number block text-5xl font-bold text-white" data-target="5">0</span>
+            <p class="mt-4 text-slate-400">Projects Completed</p>
+          </article>
+          <article class="stat-card glass-card rounded-[2rem] border border-slate-700/70 p-8 text-center shadow-glow slide-up hover:-translate-y-1 transition-transform">
+            <div class="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full bg-slate-800/70 text-slate-100"><i class="fab fa-github text-2xl"></i></div>
+            <span class="stat-number block text-5xl font-bold text-white" data-target="10">0</span>
+            <p class="mt-4 text-slate-400">GitHub Repositories</p>
+          </article>
+          <article class="stat-card glass-card rounded-[2rem] border border-slate-700/70 p-8 text-center shadow-glow slide-up hover:-translate-y-1 transition-transform">
+            <div class="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full bg-secondary/15 text-secondary"><i class="fas fa-certificate text-2xl"></i></div>
+            <span class="stat-number block text-5xl font-bold text-white" data-target="12">0</span>
+            <p class="mt-4 text-slate-400">Certifications</p>
+          </article>
+          <article class="stat-card glass-card rounded-[2rem] border border-slate-700/70 p-8 text-center shadow-glow slide-up hover:-translate-y-1 transition-transform">
+            <div class="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full bg-accent/15 text-accent"><i class="fas fa-book text-2xl"></i></div>
+            <span class="stat-number block text-5xl font-bold text-white" data-target="1">0</span>
+            <p class="mt-4 text-slate-400">Research Papers</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section py-20 lg:py-24">
+      <div class="container mx-auto px-6">
+        <div class="mb-12 max-w-2xl text-center mx-auto">
+          <span class="inline-flex rounded-full bg-slate-900/80 px-3 py-1 text-xs uppercase tracking-[0.35em] text-slate-400">Contact</span>
+          <h2 class="mt-4 text-4xl font-semibold text-white">Get In Touch</h2>
+          <p class="mt-3 text-slate-400">Have a project in mind or an opportunity to discuss? Let's talk.</p>
+        </div>
+          <form id="contactForm" data-whatsapp-number="+8801314728637" class="glass-card rounded-[2rem] border border-slate-700/70 p-8 text-slate-100 shadow-glow slide-up" novalidate>
+            <div class="grid gap-4">
+              <div>
+                <label for="formName" class="mb-2 block text-sm font-medium text-slate-300">Your Name</label>
+                <input id="formName" name="name" type="text" placeholder="Ahmed." required class="input-field w-full rounded-3xl border border-slate-700/90 bg-slate-900/90 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                <p class="mt-2 text-sm text-rose-400 hidden form-error"></p>
+              </div>
+              <div>
+                <label for="formEmail" class="mb-2 block text-sm font-medium text-slate-300">Your Email</label>
+                <input id="formEmail" name="email" type="email" placeholder="yourname@gmail.com" required class="input-field w-full rounded-3xl border border-slate-700/90 bg-slate-900/90 px-4 py-3 text-slate-100 placeholder:text-primary placeholder:animate-pulse focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                <p class="mt-2 text-sm text-rose-400 hidden form-error"></p>
+              </div>
+              <div>
+                <label for="formSubject" class="mb-2 block text-sm font-medium text-slate-300">Subject</label>
+                <input id="formSubject" name="subject" type="text" placeholder="Project inquiry" required class="input-field w-full rounded-3xl border border-slate-700/90 bg-slate-900/90 px-4 py-3 text-slate-100 placeholder:text-primary placeholder:animate-pulse focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                <p class="mt-2 text-sm text-rose-400 hidden form-error"></p>
+              </div>
+              <div>
+                <label for="formMessage" class="mb-2 block text-sm font-medium text-slate-300">Message</label>
+                <textarea id="formMessage" name="message" rows="5" placeholder="Tell me about your project..." required class="input-field w-full rounded-3xl border border-slate-700/90 bg-slate-900/90 px-4 py-3 text-slate-100 placeholder:text-primary placeholder:animate-pulse focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"></textarea>
+                <p class="mt-2 text-sm text-rose-400 hidden form-error"></p>
+              </div>
+            </div>
+
+            <button type="submit" class="ripple-btn mt-6 inline-flex w-full items-center justify-center gap-3 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-slate-90 transition duration-200 hover:bg-[#2563EB]">
+              <i class="fab fa-whatsapp"></i> Send 
+            </button>
+            <p id="formSuccess" class="form-success mt-4 hidden rounded-3xl bg-emerald-500/15 px-4 py-3 text-sm text-emerald-300"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer border-t border-slate-800/70 bg-slate-950/95 py-10">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <a href="#hero" class="flex items-center gap-2 text-xl font-semibold tracking-[0.22em] text-slate-100">
+          <span class="text-primary">&lt;</span>
+          <span>Portfolio</span>
+          <span class="text-secondary">/&gt;</span>
+        </a>
+        <nav class="flex flex-wrap items-center justify-center gap-3 text-sm text-slate-400" aria-label="Footer navigation">
+          <a href="#hero" class="footer-link transition hover:text-white">Home</a>
+          <a href="#about" class="footer-link transition hover:text-white">About</a>
+          <a href="#skills" class="footer-link transition hover:text-white">Skills</a>
+          <a href="#projects" class="footer-link transition hover:text-white">Projects</a>
+          <a href="#research" class="footer-link transition hover:text-white">Research</a>
+          <!-- <a href="#experience" class="footer-link transition hover:text-white">Experience</a> -->
+          <a href="#certifications" class="footer-link transition hover:text-white">Certifications</a>
+          <a href="#contact" class="footer-link transition hover:text-white">Contact</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/connectamn" target="_blank" rel="noopener noreferrer" class="footer-link inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-900/80 text-slate-100 transition hover:bg-primary hover:text-slate-90" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/connectamn" target="_blank" rel="noopener noreferrer" class="footer-link inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-900/80 text-slate-100 transition hover:bg-secondary hover:text-slate-90" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <p class="mt-8 text-center text-sm text-slate-500">&copy; <span id="footerYear"></span> Your Name. All rights reserved. Built with <i class="fas fa-heart text-rose-400"></i> using HTML, Tailwind CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top hidden fixed bottom-8 right-8 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-slate-900/95 text-slate-100 shadow-xl shadow-slate-950/40 transition hover:bg-slate-800" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
