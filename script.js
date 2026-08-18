@@ -4,6 +4,7 @@ const navMenu = document.getElementById('navMenu');
 const backToTop = document.getElementById('backToTop');
 const scrollProgressBar = document.getElementById('scrollProgressBar');
 const typingText = document.getElementById('typingText');
+const typingTextMobile = document.getElementById('typingTextMobile');
 const sections = document.querySelectorAll('main section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 const rippleButtons = document.querySelectorAll('.ripple-btn');
@@ -28,13 +29,17 @@ let isDeleting = false;
 let typingDelay = 70;
 
 function toggleMobileMenu() {
+  if (!navToggle || !navMenu) return;
   const expanded = navToggle.getAttribute('aria-expanded') === 'true';
   navToggle.setAttribute('aria-expanded', String(!expanded));
+  navToggle.classList.toggle('active');
   navMenu.classList.toggle('hidden');
 }
 
 function closeMobileMenu() {
+  if (!navToggle || !navMenu) return;
   navToggle.setAttribute('aria-expanded', 'false');
+  navToggle.classList.remove('active');
   navMenu.classList.add('hidden');
 }
 
@@ -88,7 +93,9 @@ function startTypingEffect() {
   const currentPhrase = typingPhrases[typingIndex % typingPhrases.length];
   if (isDeleting) {
     characterIndex -= 1;
-    typingText.textContent = currentPhrase.substring(0, characterIndex);
+    const text = currentPhrase.substring(0, characterIndex);
+    if (typingText) typingText.textContent = text;
+    if (typingTextMobile) typingTextMobile.textContent = text;
 
     if (characterIndex <= 0) {
       isDeleting = false;
@@ -98,7 +105,9 @@ function startTypingEffect() {
     }
   } else {
     characterIndex += 1;
-    typingText.textContent = currentPhrase.substring(0, characterIndex);
+    const text = currentPhrase.substring(0, characterIndex);
+    if (typingText) typingText.textContent = text;
+    if (typingTextMobile) typingTextMobile.textContent = text;
 
     if (characterIndex === currentPhrase.length) {
       isDeleting = true;
@@ -273,7 +282,7 @@ function initContactForm() {
 
   const fields = contactForm.querySelectorAll('input, textarea');
   const errorMessages = contactForm.querySelectorAll('.form-error');
-  const whatsappNumber = contactForm.dataset.whatsappNumber?.trim();
+  const recipientEmail = contactForm.dataset.email?.trim() || 'ahmedmohammednuruddin@gmail.com';
 
   contactForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -309,30 +318,155 @@ function initContactForm() {
       messageElement.classList.add('hidden');
     });
 
-    const hasPlaceholderNumber = !whatsappNumber || /x|your|phone/i.test(whatsappNumber);
-    if (hasPlaceholderNumber) {
-      formSuccess.textContent = 'Please replace the placeholder phone number in the form with your real WhatsApp number.';
-      formSuccess.classList.remove('hidden');
-      return;
-    }
-
-    const encodedText = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\n${formData.message}`
+    const emailSubject = encodeURIComponent(formData.subject ? `[Portfolio Inquiry] ${formData.subject}` : 'Portfolio Inquiry');
+    const emailBody = encodeURIComponent(
+      `Hello Ahmed,\n\n${formData.message}\n\n---\nSender Name: ${formData.name}\nSender Email: ${formData.email}`
     );
-    const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${encodedText}`;
-    const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 
-    if (!newWindow) {
-      window.location.href = whatsappUrl;
+    // Direct web compose link for Gmail
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipientEmail)}&su=${emailSubject}&body=${emailBody}`;
+    
+    // Attempt opening Gmail compose in a new tab
+    const newWindow = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+
+    // If pop-up is blocked or fails, trigger mailto client
+    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+      const mailtoUrl = `mailto:${encodeURIComponent(recipientEmail)}?subject=${emailSubject}&body=${emailBody}`;
+      window.location.href = mailtoUrl;
     }
 
-    formSuccess.textContent = 'Opening WhatsApp with your message...';
+    formSuccess.textContent = 'Opening Gmail compose to send your message...';
     formSuccess.classList.remove('hidden');
 
     setTimeout(() => {
       formSuccess.classList.add('hidden');
     }, 5000);
   });
+}
+
+function initProjectsToggle() {
+  const toggleBtn = document.getElementById('toggleProjectsBtn');
+  const toggleText = document.getElementById('toggleProjectsText');
+  const toggleIcon = document.getElementById('toggleProjectsIcon');
+  const extraProjects = document.querySelectorAll('.extra-project');
+
+  if (!toggleBtn || !extraProjects.length) return;
+
+  let isExpanded = false;
+
+  toggleBtn.addEventListener('click', () => {
+    isExpanded = !isExpanded;
+
+    extraProjects.forEach((card) => {
+      if (isExpanded) {
+        card.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          card.classList.add('visible');
+        });
+      } else {
+        card.classList.add('hidden');
+        card.classList.remove('visible');
+      }
+    });
+
+    if (isExpanded) {
+      toggleText.textContent = 'Show Less';
+      toggleIcon.classList.add('rotate-180');
+    } else {
+      toggleText.textContent = 'Show More Projects';
+      toggleIcon.classList.remove('rotate-180');
+      const projectsSection = document.getElementById('projects');
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+}
+
+function initCertsToggle() {
+  const toggleBtn = document.getElementById('toggleCertsBtn');
+  const toggleText = document.getElementById('toggleCertsText');
+  const toggleIcon = document.getElementById('toggleCertsIcon');
+  const extraCerts = document.querySelectorAll('.extra-cert');
+
+  if (!toggleBtn || !extraCerts.length) return;
+
+  let isExpanded = false;
+
+  toggleBtn.addEventListener('click', () => {
+    isExpanded = !isExpanded;
+
+    extraCerts.forEach((card) => {
+      if (isExpanded) {
+        card.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          card.classList.add('visible');
+        });
+      } else {
+        card.classList.add('hidden');
+        card.classList.remove('visible');
+      }
+    });
+
+    if (isExpanded) {
+      toggleText.textContent = 'Show Less';
+      toggleIcon.classList.add('rotate-180');
+    } else {
+      toggleText.textContent = 'Show More Certifications';
+      toggleIcon.classList.remove('rotate-180');
+      const certsSection = document.getElementById('certifications');
+      if (certsSection) {
+        certsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+}
+
+function initThemeToggle() {
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+
+  function updateThemeUI(isLight) {
+    if (isLight) {
+      document.documentElement.classList.add('light');
+      if (themeIcon) {
+        themeIcon.className = 'fas fa-moon text-indigo-600 text-base transition-all duration-300 -rotate-12';
+      }
+      if (themeToggle) {
+        themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+        themeToggle.setAttribute('title', 'Switch to dark mode');
+      }
+    } else {
+      document.documentElement.classList.remove('light');
+      if (themeIcon) {
+        themeIcon.className = 'fas fa-sun text-amber-400 text-base transition-all duration-300 rotate-90';
+      }
+      if (themeToggle) {
+        themeToggle.setAttribute('aria-label', 'Switch to light mode');
+        themeToggle.setAttribute('title', 'Switch to light mode');
+      }
+    }
+  }
+
+  const isCurrentlyLight = document.documentElement.classList.contains('light');
+  updateThemeUI(isCurrentlyLight);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.contains('light');
+      const nextThemeIsLight = !isLight;
+      localStorage.setItem('theme', nextThemeIsLight ? 'light' : 'dark');
+      updateThemeUI(nextThemeIsLight);
+    });
+  }
+
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        updateThemeUI(e.matches);
+      }
+    });
+  }
 }
 
 function setFooterYear() {
@@ -348,6 +482,14 @@ function initEventListeners() {
     link.addEventListener('click', smoothScroll);
   });
 
+  document.addEventListener('click', (e) => {
+    if (navMenu && !navMenu.classList.contains('hidden')) {
+      if (!navMenu.contains(e.target) && navToggle && !navToggle.contains(e.target)) {
+        closeMobileMenu();
+      }
+    }
+  });
+
   window.addEventListener('scroll', () => {
     updateScrollProgress();
     updateActiveNav();
@@ -358,6 +500,7 @@ function initEventListeners() {
 }
 
 function init() {
+  initThemeToggle();
   startTypingEffect();
   revealOnScroll();
   observeStats();
@@ -365,6 +508,8 @@ function init() {
   initRippleButtons();
   animateContactPlaceholders();
   initContactForm();
+  initProjectsToggle();
+  initCertsToggle();
   initEventListeners();
   updateScrollProgress();
   updateActiveNav();
